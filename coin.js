@@ -65,20 +65,27 @@ function coinFlips(flips) {
  * @returns {{ heads: number, tails: number }}
  */
 
-function countFlips(array) {
-  const flipObject = {heads: 0, tails: 0};
-  let count = 0;
-  let numFlips = array.length;
-  while(count<numFlips) {
-    if(array[count] == 'heads') {
-      flipObject.heads = flipObject.heads+1;
-    } else {
-      flipObject.tails = flipObject.tails+1;
+ function countFlips(array) {
+  let heads = 0, tails = 0;
+  array.forEach(flip => {
+    if (flip == 'heads') heads++;
+    else tails++;
+  });
+  if (heads > 0 && tails > 0)
+    return {
+      'heads': heads,
+      'tails': tails
     }
-    count++;
-  }
-  return flipObject;
-}
+  if (heads > 0)
+   return {
+      'heads': heads
+   };
+
+  return {
+    'tails': tails
+  };
+};
+
 
 /** Flip a coin!
  * 
