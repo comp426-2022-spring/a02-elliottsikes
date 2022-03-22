@@ -101,9 +101,9 @@ function coinFlips(flips) {
 function flipACoin(call) {
   const correct = coinFlip();
   if(correct == call) {
-    return 'win';
+    return {'call': call, 'flip': correct, 'result': 'win'};
   } else {
-    return 'lose';
+    return {'call': call, 'flip': correct, 'result': 'lose'};
   }
 }
 
